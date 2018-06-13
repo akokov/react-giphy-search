@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import {
-  Redirect,
-  Route,
-  Switch,
-  withRouter
+    NavLink,
+    Redirect,
+    Route,
+    Switch,
+    withRouter
 } from 'react-router-dom';
 import RandomScene from '../scenes/Random/Random';
 import HomeScene from '../scenes/Home/Home';
-import NavItem from '../components/NavItem/NavItem';
 import {connect} from 'react-redux';
 import Login from '../scenes/Login/Login';
 import * as actions from './services/actions';
@@ -35,49 +35,43 @@ export class Main extends Component {
     const pageName = this.props.location.pathname.substr(1).replace('/', '-');
 
     return (
-      <div>
-        {initializing ? 'Loading!' : null}
-
-        <div className='app-header'>
-          <div className='app-header__logo'>
-            GIPHY Search | {pageName}
-          </div>
-          <ul className='app-header__navigation'>
-            <li><NavItem to={'/random'}>Random</NavItem></li>
-            <li><NavItem to={'/home'}>Home</NavItem></li>
-
-            {loggedIn ?
-              <li><NavItem to={'/favourites'}>Favourites</NavItem></li> : null
-            }
-
-            {!loggedIn && !initializing ?
-              <li><NavItem to={'/login'}>Login</NavItem></li> : null
-            }
-            {loggedIn ?
-              <li><UserBar user={user} onLogout={this.handleLogout}/></li> : null
-            }
-          </ul>
-
+    <React.Fragment>
+      <div className="ui pointing menu">
+          {initializing ? 'Loading!' : null}
+        <div className='app-header__logo'>
+          GIPHY Search | {pageName}
         </div>
-
-        <Switch>
-          <Route exact path='/' component={RandomScene}/>
-          <Route path={'/random'} component={RandomScene}/>
-          <Route path={'/home'} component={HomeScene}/> : null
+        <NavLink to={'/random'} className="item">Random</NavLink>
+        <NavLink to={'/home'}  className="item">Home</NavLink>
 
           {loggedIn ?
-            <Route path={'/favourites'} component={FavouritesScene}/> : null
+              <NavLink to={'/favourites'}  className="item">Favourites</NavLink> : null
           }
 
           {!loggedIn && !initializing ?
-            <Route path={'/login'} component={Login}/> : null
+              <NavLink to={'/login'}  className="item">Login</NavLink> : null
+          }
+          {loggedIn ?
+              <UserBar user={user} onLogout={this.handleLogout}/> : null
+          }
+      </div>
+      <Switch>
+        <Route exact path='/' component={RandomScene}/>
+        <Route path={'/random'} component={RandomScene}/>
+        <Route path={'/home'} component={HomeScene}/> : null
+
+          {loggedIn ?
+              <Route path={'/favourites'} component={FavouritesScene}/> : null
           }
 
-          <Redirect to={'/random'}/>
-        </Switch>
-      </div>
-    );
+          {!loggedIn && !initializing ?
+              <Route path={'/login'} component={Login}/> : null
+          }
 
+        <Redirect to={'/random'}/>
+      </Switch>
+    </React.Fragment>
+    );
   }
 
 }

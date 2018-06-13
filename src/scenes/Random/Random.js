@@ -39,14 +39,14 @@ class RandomScene extends Component {
         <ul className='app-header__navigation'>
           <li>
             <button
-              className='load-random-btn'
+              className="load-random-btn ui primary button"
               onClick={this.handleLoadRandom}>
               Another please!
             </button>
           </li>
           <li>
             <button
-              className='load-random-btn'
+              className="load-random-btn ui primary button"
               onClick={this.handleStartTimer}>
               {!timerStarted ? 'Start!' : 'Stop'}
             </button>
