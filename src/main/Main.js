@@ -50,12 +50,12 @@ export class Main extends Component {
 
     return (
       <div>
-        <LoadingBar/>
+        <LoadingBar style={{ backgroundColor: 'blue', height: '5px' }}/>
         {initializing ? 'Loading!' : null}
 
         <div className='app-header'>
           <div className='app-header__logo'>
-            GIPHY Search | {pageName}
+            GIPHY Search | { pageName ? <span>{pageName}</span> : 'random' }
           </div>
           <ul className='app-header__navigation'>
             <li><NavItem to={'/random'}>Random</NavItem></li>

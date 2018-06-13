@@ -9,7 +9,7 @@ const defaultState = {
 
 export const reducer = (
   state = defaultState,
-  action
+  action = {},
 ) => {
   switch (action.type) {
     case actions.LOAD_RANDOM: {
@@ -50,8 +50,6 @@ export const reducer = (
       };
     }
 
-    default: {
-      return state;
-    }
+    default: return state
   }
 };

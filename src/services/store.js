@@ -2,6 +2,9 @@ import {
   routerMiddleware,
   routerReducer
 } from 'react-router-redux';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
+import promiseMiddleware from 'redux-promise-middleware';
 import {
   applyMiddleware,
   compose,
@@ -65,9 +68,12 @@ export const createAppStore = (history) => {
 
     composeEnhancers(
       applyMiddleware(
-        routerHistoryMiddleware,
+        thunkMiddleware, // lets us dispatch() functions
+        promiseMiddleware(), // resolves promises
+        loadingBarMiddleware(), // manages loading bar
+        createLogger(), // log actions in console
+        routerHistoryMiddleware, // manage navigation history
         epicMiddleware,
-        loadingBarMiddleware()
       )
     )
   );

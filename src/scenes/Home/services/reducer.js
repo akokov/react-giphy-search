@@ -49,7 +49,7 @@ export const reducer = (
         loading: false
       };
     }
-  }
 
-  return state;
+    default: return state
+  }
 };
