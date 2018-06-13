@@ -1,6 +1,6 @@
 import React from 'react';
-import {shallow} from 'enzyme';
-import {HomeScene} from './Home';
+import { shallow } from 'enzyme';
+import { HomeScene } from './Home';
 
 describe('<HomeScene/>', () => {
 

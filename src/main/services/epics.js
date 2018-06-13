@@ -1,10 +1,10 @@
-import {combineEpics} from 'redux-observable';
+import { combineEpics } from 'redux-observable';
 import {
   first,
   map,
   switchMap
 } from 'rxjs/operators';
-import {forkJoin} from 'rxjs';
+import { forkJoin } from 'rxjs';
 import * as actions from './actions';
 
 export const appInit = (

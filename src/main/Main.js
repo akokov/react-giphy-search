@@ -47,47 +47,47 @@ export class Main extends Component {
 
     const pageName = this.props.location.pathname.substr(1).replace('/', '-');
 
-        return (
-            <React.Fragment>
-                <LoadingBar style={{ backgroundColor: 'blue', height: '5px' }}/>
-                {initializing ? 'Loading!' : null}
-                <div className="ui pointing menu">
+    return (
+      <React.Fragment>
+        <LoadingBar style={{backgroundColor: 'blue', height: '5px'}}/>
+        {initializing ? 'Loading!' : null}
+        <div className="ui pointing menu">
 
-                    <div className='app-header__logo'>
-                        GIPHY Search | { pageName ? <span>{pageName}</span> : 'random' }
-                    </div>
-                    <NavLink to={'/random'} className="item">Random</NavLink>
-                    <NavLink to={'/home'} className="item">Home</NavLink>
+          <div className='app-header__logo'>
+            GIPHY Search | {pageName ? <span>{pageName}</span> : 'random'}
+          </div>
+          <NavLink to={'/random'} className="item">Random</NavLink>
+          <NavLink to={'/home'} className="item">Home</NavLink>
 
-                    {loggedIn ?
-                        <NavLink to={'/favourites'} className="item">Favourites</NavLink> : null
-                    }
+          {loggedIn ?
+            <NavLink to={'/favourites'} className="item">Favourites</NavLink> : null
+          }
 
-                    {!loggedIn && !initializing ?
-                        <NavLink to={'/login'} className="item">Login</NavLink> : null
-                    }
-                    {loggedIn ?
-                        <UserBar user={user} onLogout={this.handleLogout}/> : null
-                    }
-                </div>
-                <Switch>
-                    <Route exact path='/' component={RandomScene}/>
-                    <Route path={'/random'} component={RandomScene}/>
-                    <Route path={'/home'} component={HomeScene}/> : null
+          {!loggedIn && !initializing ?
+            <NavLink to={'/login'} className="item">Login</NavLink> : null
+          }
+          {loggedIn ?
+            <UserBar user={user} onLogout={this.handleLogout}/> : null
+          }
+        </div>
+        <Switch>
+          <Route exact path='/' component={RandomScene}/>
+          <Route path={'/random'} component={RandomScene}/>
+          <Route path={'/home'} component={HomeScene}/> : null
 
-                    {loggedIn ?
-                        <Route path={'/favourites'} component={FavouritesScene}/> : null
-                    }
+          {loggedIn ?
+            <Route path={'/favourites'} component={FavouritesScene}/> : null
+          }
 
-                    {!loggedIn && !initializing ?
-                        <Route path={'/login'} component={Login}/> : null
-                    }
+          {!loggedIn && !initializing ?
+            <Route path={'/login'} component={Login}/> : null
+          }
 
-                    <Redirect to={'/random'}/>
-                </Switch>
-            </React.Fragment>
-        );
-    }
+          <Redirect to={'/random'}/>
+        </Switch>
+      </React.Fragment>
+    );
+  }
 
 }
 

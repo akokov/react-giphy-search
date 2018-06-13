@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import * as actions from './services/actions';
 import './Home.css';
-import {GifItem} from '../../components/GifItem/GifItem';
+import { GifItem } from '../../components/GifItem/GifItem';
 
 export class HomeScene extends Component {
 

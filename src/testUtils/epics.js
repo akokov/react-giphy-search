@@ -1,5 +1,5 @@
-import {TestScheduler} from 'rxjs/Rx';
-import {ActionsObservable} from 'redux-observable';
+import { TestScheduler } from 'rxjs/Rx';
+import { ActionsObservable } from 'redux-observable';
 
 // Related docs
 // https://www.nexthink.com/blog/marble-testing-redux-observable-epics/

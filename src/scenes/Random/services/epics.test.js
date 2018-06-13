@@ -2,9 +2,9 @@ import {
   of,
   throwError
 } from 'rxjs';
-import {delay} from 'rxjs/operators';
-import {loadRandom} from './epics';
-import {expectEpic} from '../../../testUtils/epics';
+import { delay } from 'rxjs/operators';
+import { loadRandom } from './epics';
+import { expectEpic } from '../../../testUtils/epics';
 import * as actions from './actions';
 
 describe('randomEpics', () => {

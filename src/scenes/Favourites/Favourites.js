@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import * as actions from './services/actions';
-import {GifItem} from '../../components/GifItem/GifItem';
-import {connect} from 'react-redux';
+import { GifItem } from '../../components/GifItem/GifItem';
+import { connect } from 'react-redux';
 
 export class FavouritesScene extends Component {
 

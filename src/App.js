@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import {ConnectedRouter} from 'react-router-redux';
+import React, { Component } from 'react';
+import { ConnectedRouter } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
-import {Provider} from 'react-redux';
-import {createAppStore} from './services/store';
+import { Provider } from 'react-redux';
+import { createAppStore } from './services/store';
 import './App.css';
 import Main from './main/Main';
 

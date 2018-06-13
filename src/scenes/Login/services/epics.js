@@ -1,5 +1,5 @@
-import {combineEpics} from 'redux-observable';
-import {of} from 'rxjs';
+import { combineEpics } from 'redux-observable';
+import { of } from 'rxjs';
 import {
   catchError,
   map,
