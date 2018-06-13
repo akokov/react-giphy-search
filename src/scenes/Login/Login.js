@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import * as actions from './services/actions';
 import './Login.css';
 
@@ -9,8 +9,8 @@ class Login extends Component {
     super();
 
     this.state = {
-      username: '',
-      password: ''
+      username: 'akokov.lt@gmail.com',
+      password: '123488'
     };
   }
 

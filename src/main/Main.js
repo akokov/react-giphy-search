@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     NavLink,
     Redirect,
@@ -12,13 +12,27 @@ import {connect} from 'react-redux';
 import Login from '../scenes/Login/Login';
 import * as actions from './services/actions';
 import * as authActions from '../scenes/Login/services/actions';
-import {UserBar} from './components/UserBar/UserBar';
+import { UserBar } from './components/UserBar/UserBar';
 import FavouritesScene from '../scenes/Favourites/Favourites';
+import LoadingBar, {
+  hideLoading,
+  showLoading
+} from 'react-redux-loading-bar';
+import $ from 'jquery';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
 
 export class Main extends Component {
 
   componentDidMount() {
     this.props.onAppInit();
+    $(document).on('ajaxStart', this.props.actions.showLoading);
+    $(document).on('ajaxStop', this.props.actions.hideLoading);
+  }
+
+  componentWillUnmount() {
+    $(document).off('ajaxStart', this.props.actions.showLoading);
+    $(document).off('ajaxStop', this.props.actions.hideLoading)
   }
 
   handleLogout = () => {
@@ -36,8 +50,10 @@ export class Main extends Component {
 
     return (
     <React.Fragment>
+        <LoadingBar/>
+        {initializing ? 'Loading!' : null}
       <div className="ui pointing menu">
-          {initializing ? 'Loading!' : null}
+
         <div className='app-header__logo'>
           GIPHY Search | {pageName}
         </div>
@@ -88,10 +104,15 @@ const mapStateToProps = (state) => {
   };
 };
 
+Main.propTypes = {
+  actions: PropTypes.object.isRequired,
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     onAppInit: () => dispatch(actions.initApp()),
-    onLogout: () => dispatch(authActions.logout())
+    onLogout: () => dispatch(authActions.logout()),
+    actions: bindActionCreators({showLoading, hideLoading}, dispatch),
   };
 };
 

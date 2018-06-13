@@ -1,16 +1,16 @@
 import {
   from,
   ReplaySubject
-} from "rxjs";
+} from 'rxjs';
 import * as firebase from 'firebase';
 
 firebase.initializeApp({
-  apiKey: "AIzaSyCWFTfVjyWhyvj3PlXMwOYiqp2CSpt7MDw",
-  authDomain: "giphy-search-a225c.firebaseapp.com",
-  databaseURL: "https://giphy-search-a225c.firebaseio.com",
-  projectId: "giphy-search-a225c",
-  storageBucket: "giphy-search-a225c.appspot.com",
-  messagingSenderId: "489526016041"
+  apiKey: 'AIzaSyCa88aFSfQzjoV8DVUzwjgT79a9dMnrooQ',
+  authDomain: 'akokov-react-test.firebaseapp.com',
+  databaseURL: 'https://akokov-react-test.firebaseio.com',
+  projectId: 'akokov-react-test',
+  storageBucket: 'akokov-react-test.appspot.com',
+  messagingSenderId: '622006230182'
 });
 
 const apiAuth = {

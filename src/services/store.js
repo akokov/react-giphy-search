@@ -8,11 +8,11 @@ import {
   createStore
 } from 'redux';
 import combineReducers from 'redux/src/combineReducers';
-import {reducer as randomReducer} from '../scenes/Random/services/reducer';
-import {reducer as homeReducer} from '../scenes/Home/services/reducer';
-import {reducer as loginReducer} from '../scenes/Login/services/reducer';
-import {reducer as mainReducer} from '../main/services/reducer';
-import {reducer as favouritesReducer} from '../scenes/Favourites/services/reducer';
+import { reducer as randomReducer } from '../scenes/Random/services/reducer';
+import { reducer as homeReducer } from '../scenes/Home/services/reducer';
+import { reducer as loginReducer } from '../scenes/Login/services/reducer';
+import { reducer as mainReducer } from '../main/services/reducer';
+import { reducer as favouritesReducer } from '../scenes/Favourites/services/reducer';
 import {
   combineEpics,
   createEpicMiddleware
@@ -23,6 +23,10 @@ import authEpic from '../scenes/Login/services/epics';
 import mainEpic from '../main/services/epics';
 import apiAuth from './auth.service';
 import apiGiphy from './giphy.service';
+import {
+  loadingBarMiddleware,
+  loadingBarReducer
+} from 'react-redux-loading-bar';
 
 
 export const createAppStore = (history) => {
@@ -51,7 +55,8 @@ export const createAppStore = (history) => {
     home: homeReducer,
     auth: loginReducer,
     main: mainReducer,
-    favourites: favouritesReducer
+    favourites: favouritesReducer,
+    loadingBar: loadingBarReducer,
   });
 
   return createStore(
@@ -61,7 +66,8 @@ export const createAppStore = (history) => {
     composeEnhancers(
       applyMiddleware(
         routerHistoryMiddleware,
-        epicMiddleware
+        epicMiddleware,
+        loadingBarMiddleware()
       )
     )
   );
