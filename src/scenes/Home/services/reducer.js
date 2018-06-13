@@ -50,6 +50,7 @@ export const reducer = (
       };
     }
 
-    default: return state
+    default:
+      return state
   }
 };
