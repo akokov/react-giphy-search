@@ -56,8 +56,8 @@ class Login extends Component {
                    onChange={this.handlePasswordChange}/>
           </div>
 
-          <button type='submit'
-                  className='btn'>
+          <button type="submit"
+                  className="ui primary button">
             Login
           </button>
 

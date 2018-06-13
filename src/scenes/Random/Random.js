@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
   loadRandom,
   loadRandomCancel,
@@ -7,7 +7,7 @@ import {
   stopTimer
 } from './services/actions';
 import './Random.css';
-import {GifItem} from '../../components/GifItem/GifItem';
+import { GifItem } from '../../components/GifItem/GifItem';
 import '../../App.css';
 
 class RandomScene extends Component {
@@ -39,14 +39,14 @@ class RandomScene extends Component {
         <ul className='app-header__navigation'>
           <li>
             <button
-              className='load-random-btn'
+              className="load-random-btn ui primary button"
               onClick={this.handleLoadRandom}>
               Another please!
             </button>
           </li>
           <li>
             <button
-              className='load-random-btn'
+              className="load-random-btn ui primary button"
               onClick={this.handleStartTimer}>
               {!timerStarted ? 'Start!' : 'Stop'}
             </button>
