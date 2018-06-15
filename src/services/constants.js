@@ -1,6 +1,6 @@
-import * as firebase from 'firebase';
+import firebase from 'firebase';
 
-export const constantsService = {
+export const constantsAPI = {
 
   firebase: {
     apiKey: 'AIzaSyCa88aFSfQzjoV8DVUzwjgT79a9dMnrooQ',
@@ -18,4 +18,9 @@ export const constantsService = {
 
 };
 
-firebase.initializeApp(constantsService.firebase);
+firebase.initializeApp(constantsAPI.firebase);
+
+export const firebaseAuthRef = firebase.auth();
+
+const databaseRef = firebase.database().ref();
+export const favoritesRef = databaseRef.child("favorites");
