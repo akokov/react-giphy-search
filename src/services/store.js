@@ -24,6 +24,7 @@ import randomEpic from '../scenes/Random/services/epics';
 import homeEpic from '../scenes/Home/services/epics';
 import authEpic from '../scenes/Login/services/epics';
 import mainEpic from '../main/services/epics';
+import favouritesEpic from '../scenes/Favourites/services/epics';
 import apiAuth from './auth.service';
 import apiGiphy from './giphy.service';
 import apiFirebase from './firebase.service';
@@ -43,7 +44,8 @@ export const createAppStore = (history) => {
     randomEpic,
     homeEpic,
     authEpic,
-    mainEpic
+    mainEpic,
+    favouritesEpic
   );
 
   const epicMiddleware = createEpicMiddleware(rootEpic, {

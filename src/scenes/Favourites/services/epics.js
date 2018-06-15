@@ -3,7 +3,8 @@ import { of } from 'rxjs';
 import {
   catchError,
   map,
-  mergeMap
+  mergeMap,
+  takeUntil
 } from 'rxjs/operators';
 import * as actions from './actions';
 
