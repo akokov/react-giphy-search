@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import * as actions from './services/actions';
+import {
+  loadFavourites,
+  loadFavouritesCancel
+} from './services/actions';
 import { GifItem } from '../../components/GifItem/GifItem';
 import { connect } from 'react-redux';
 
@@ -7,6 +10,10 @@ export class FavouritesScene extends Component {
 
   componentDidMount() {
     this.props.onLoad();
+  }
+
+  componentWillUnmount() {
+    this.props.onCancel();
   }
 
   render() {
@@ -48,7 +55,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onLoad: () => dispatch(actions.loadFavourites())
+    onLoad: () => dispatch(loadFavourites()),
+    onCancel: () => dispatch(loadFavouritesCancel())
   };
 };
 
