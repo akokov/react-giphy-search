@@ -18,4 +18,6 @@ export const constantsService = {
 
 };
 
-firebase.initializeApp(constantsService.firebase);
+
+export const appFirebase = firebase.initializeApp(constantsService.firebase);
+
