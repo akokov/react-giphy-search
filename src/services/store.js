@@ -26,6 +26,7 @@ import authEpic from '../scenes/Login/services/epics';
 import mainEpic from '../main/services/epics';
 import apiAuth from './auth.service';
 import apiGiphy from './giphy.service';
+import apiFirebase from './firebase.service';
 import {
   loadingBarMiddleware,
   loadingBarReducer
@@ -49,6 +50,7 @@ export const createAppStore = (history) => {
     dependencies: {
       apiAuth,
       apiGiphy,
+      apiFirebase,
     }
   });
 
