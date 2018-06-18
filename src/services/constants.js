@@ -18,9 +18,6 @@ export const constantsAPI = {
 
 };
 
-firebase.initializeApp(constantsAPI.firebase);
+export const appFirebase = firebase.initializeApp(constantsAPI.firebase);
 
 export const firebaseAuthRef = firebase.auth();
-
-const databaseRef = firebase.database().ref();
-export const favoritesRef = databaseRef.child("favorites");
