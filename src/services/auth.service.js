@@ -2,7 +2,7 @@ import {
   from,
   ReplaySubject
 } from 'rxjs';
-import {appFirebase} from './constants.service';
+import { firebaseAuthRef } from './constants';
 
 const apiAuth = {
 
@@ -11,14 +11,14 @@ const apiAuth = {
     password
   ) => {
     return from(
-      appFirebase.auth().signInWithEmailAndPassword(username, password)
+      firebaseAuthRef.signInWithEmailAndPassword(username, password)
     );
 
   },
 
   logout: () => {
     return from(
-      appFirebase.auth().signOut()
+      firebaseAuthRef.signOut()
     );
   },
 
@@ -27,13 +27,13 @@ const apiAuth = {
     password
   ) => {
     return from(
-      appFirebase.auth().createUserWithEmailAndPassword(username, password)
+      firebaseAuthRef.createUserWithEmailAndPassword(username, password)
     );
   },
 
   getUser: () => {
     const observer = new ReplaySubject(1);
-    appFirebase.auth().onAuthStateChanged(observer);
+    firebaseAuthRef.onAuthStateChanged(observer);
 
     return observer;
   },

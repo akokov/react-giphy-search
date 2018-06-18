@@ -1,5 +1,7 @@
 import { from } from 'rxjs';
 import {appFirebase} from './constants.service';
+import { of } from 'rxjs';
+import { favoritesRef } from './constants';
 
 const apiFirebase = {
 
@@ -21,6 +23,7 @@ const apiFirebase = {
       })
     );
 
+    return favoritesRef.on('value', snapshot => {return of(snapshot)});
   },
 
 };

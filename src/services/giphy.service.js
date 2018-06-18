@@ -1,16 +1,16 @@
 import * as queryString from 'qs';
 import { ajax } from 'rxjs/observable/dom/ajax';
-import { constantsService } from './constants.service';
+import { constantsAPI } from './constants';
 
-const URL_RANDOM = constantsService.giphy.giphyUrl + '/random';
-const URL_SEARCH = constantsService.giphy.giphyUrl + '/search';
+const URL_RANDOM = constantsAPI.giphy.giphyUrl + '/random';
+const URL_SEARCH = constantsAPI.giphy.giphyUrl + '/search';
 
 const apiGiphy = {
 
   search: (query) => {
     const params = queryString.stringify({
-      key: constantsService.giphy.apiKey,
-      api_key: constantsService.giphy.apiKey,
+      key: constantsAPI.giphy.apiKey,
+      api_key: constantsAPI.giphy.apiKey,
       q: query
     });
 
@@ -25,8 +25,8 @@ const apiGiphy = {
   random: () => {
     // console.log('Load random received');
     const params = queryString.stringify({
-      key: constantsService.giphy.apiKey,
-      api_key: constantsService.giphy.apiKey,
+      key: constantsAPI.giphy.apiKey,
+      api_key: constantsAPI.giphy.apiKey,
     });
 
     return ajax({

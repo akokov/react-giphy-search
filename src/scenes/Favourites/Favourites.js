@@ -31,7 +31,7 @@ export class FavouritesScene extends Component {
             {items && items.map(
               item => {
                 return (
-                  <GifItem url={item.images.original.url} alt={item.title}/>
+                  <GifItem url={item.image_original_url} alt={item.title}/>
                 );
               })}
           </div>
